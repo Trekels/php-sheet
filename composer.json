@@ -1,0 +1,23 @@
+{
+    "name": "vincent/php-sheet",
+    "authors": [
+        {
+            "name": "Trekles Vincent",
+            "email": "vincent.trekels@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Console\\": "src"
+        },
+        "classmap": ["src"]
+    },
+    "require": {
+        "php": ">=7.3",
+        "google/apiclient": "^2.2",
+        "symfony/console": "^4.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
+}
