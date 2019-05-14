@@ -1,3 +1,5 @@
 .env
-json-auth.json
 /vendor
+credentials.json
+.phpunit.result.cache
+test.json

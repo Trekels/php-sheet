@@ -30,6 +30,8 @@ class ClientFactory
 
     private function loadClientCredentials(): array
     {
-        return json_decode(file_get_contents(__DIR__ .'/json-auth.json'), true);
+        // TODO better improve cred handling
+
+        return json_decode(file_get_contents(__DIR__ .'/credentials.json'), true);
     }
 }

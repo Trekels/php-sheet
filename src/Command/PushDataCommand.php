@@ -23,6 +23,7 @@ class PushDataCommand extends Command
             ->addArgument('data-file', InputArgument::REQUIRED, 'Path to the data file')
             ->addArgument('sheet-id', InputArgument::REQUIRED, 'Id of the spreadsheet');
 
+        // TODO add cred path option
         //->addArgument('credential-file', InputArgument::REQUIRED, 'Path to the credential file')
     }
 
