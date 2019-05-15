@@ -17,10 +17,24 @@ to analyze project quality over time.
 
 [credits to fillup.io](https://www.fillup.io/post/read-and-write-google-sheets-from-php/)
 
+### Install
+
+Download the phar
+
+```bash
+$ wget https://github.com/Trekels/php-sheet/releases/download/v1.0.0/php-sheet.phar -O php-sheet
+```
+
+Make it executable and move to your bin folder.
+```bash
+$ sudo chmod a+x php-sheet.phar
+$ sudo mv php-sheet /usr/local/bin/php-sheet
+```
+
 ### Push the data.
 
 ```bash
-bin/sheet data ./path/to/file.json -c path/to/creds.json -s sheet_id
+bin/phpsheet data ./path/to/file.json -c path/to/creds.json -s sheet_id
 
 # if env vars are set :)
 bin/sheet data ./path/to/file.json

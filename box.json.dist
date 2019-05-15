@@ -1,6 +1,6 @@
 {
     "main": "src/index.php",
-    "output": "bin/command.phar",
+    "output": "bin/php-sheet.phar",
     "directories": ["src"],
     "finder": [
         {
