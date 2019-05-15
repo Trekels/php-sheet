@@ -5,10 +5,6 @@ Very simplistic cli tool to push json data to a google sheet. The main
 purpose is to push artifact data from CI build steps to google sheets in order 
 to analyze project quality over time.
 
-### Data flow overview
-
-![command flow](command-flow.png)
-
 ### Allow access to a sheet
 
  1. Create project on [google cloud platform](https://console.developers.google.com/apis/dashboard).
@@ -21,10 +17,14 @@ to analyze project quality over time.
 
 [credits to fillup.io](https://www.fillup.io/post/read-and-write-google-sheets-from-php/)
 
-### Pass credentials to the command
+### Push the data.
 
- - Store the json string in an env var -> `GOOGLE_SHEET_AUTH`
- - Or pass the path to the credentials.json when running the command `--credential-file=path/to/cred.json`
+```bash
+bin/sheet data ./path/to/file.json -c path/to/creds.json -s sheet_id
 
-### Usage
+# if env vars are set :)
+bin/sheet data ./path/to/file.json
+```
 
+The `--credentials | -c` option can be omitted if the credentials json string is set as env var `GOOGLE_SHEET_AUTH`.
+The `--sheet | -s` option can be omitted if the sheet id is set as an env var `GOOGLE_SHEET_ID`.

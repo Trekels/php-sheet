@@ -12,28 +12,30 @@ class SheetDataPusher
     private $client;
 
     /**
-     * @var SheetDataHandler
+     * @var SheetDataFormatter
      */
-    private $dataHandler;
+    private $dataFormatter;
 
-    public function __construct(\Google_Client $client)
+    public function __construct(\Google_Client $client, SheetDataFormatter $dataFormatter)
     {
         $this->client = $client;
-        $this->dataHandler = new SheetDataHandler();
+        $this->dataFormatter = $dataFormatter;
     }
 
-    public function pushDataToSheet(array $data, string $sheetId): void
+    public function pushDataToSheet(array $data, string $sheetId): bool
     {
-        $flatData = $this->dataHandler->flattenArray($data);
-        $insertRange = $this->dataHandler->calcArraySheetColumnRange($flatData);
+        $flatData = $this->dataFormatter->flattenArray($data);
+        $insertRange = $this->dataFormatter->calcArraySheetColumnRange($flatData);
 
         $service = new \Google_Service_Sheets($this->client);
 
-        $service->spreadsheets_values->append(
+        $response =$service->spreadsheets_values->append(
             $sheetId,
             $insertRange,
             new \Google_Service_Sheets_ValueRange(['values' => [$flatData]]),
             ['valueInputOption' => 'RAW']
         );
+
+        return $response->getUpdates()->getUpdatedRows() > 0;
     }
 }
