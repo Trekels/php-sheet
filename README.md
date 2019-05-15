@@ -22,7 +22,7 @@ to analyze project quality over time.
 Download the phar
 
 ```bash
-$ wget https://github.com/Trekels/php-sheet/releases/download/v1.0.0/php-sheet.phar -O php-sheet
+$ wget https://github.com/Trekels/php-sheet/releases/download/1.0.0/php-sheet.phar -O php-sheet
 ```
 
 Make it executable and move to your bin folder.
@@ -40,5 +40,5 @@ bin/phpsheet data ./path/to/file.json -c path/to/creds.json -s sheet_id
 bin/sheet data ./path/to/file.json
 ```
 
-The `--credentials | -c` option can be omitted if the credentials json string is set as env var `GOOGLE_SHEET_AUTH`.
-The `--sheet | -s` option can be omitted if the sheet id is set as an env var `GOOGLE_SHEET_ID`.
+`--credentials | -c` can be omitted if the credentials json string is set as env var `GOOGLE_SHEET_AUTH`.
+`--sheet | -s` can be omitted if env var `GOOGLE_SHEET_ID` is set.
